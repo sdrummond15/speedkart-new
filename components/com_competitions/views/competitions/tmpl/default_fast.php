@@ -32,7 +32,7 @@ echo '<th>Pilotos</th>';
 
 
 $classificafurious = array();
-foreach ($this->etapasfurious as $etapas) {
+foreach ($this->etapasfast as $etapas) {
 
     $datas = strtotime($etapas->data);
 
@@ -134,7 +134,9 @@ echo '<th class="rotate"><div><span>Descarte 2</span></div></th>';
 
 echo '<th>Total</th>';
 
+echo '<th class="rotate"><div><span>1º Semestre</span></div></th>';
 
+echo '<th class="rotate"><div><span>2º Semestre</span></div></th>';
 
 echo '</tr>';
 
@@ -168,7 +170,9 @@ echo '<td>DSC2</td>';
 
 echo '<td>PTS</td>';
 
+echo '<td>PTS</td>';
 
+echo '<td>PTS</td>';
 
 echo '</tr>';
 
@@ -184,7 +188,9 @@ foreach ($this->pilotoequipefurious as $pilotoequipe) {
 
     $totpontoseq = 0;
 
+    $totpontos1sem = 0;
 
+    $totpontos2sem = 0;
 
     $minpontos1 = 30;
 

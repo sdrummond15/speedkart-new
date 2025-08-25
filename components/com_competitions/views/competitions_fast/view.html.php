@@ -17,7 +17,6 @@ class CompetitionsViewCompetitions_fast extends JViewLegacy
         $this->bonuspart = $this->get('BonusParticipacao');
         $this->melhortempo = $this->get('MelhorTempo');
         $this->tempo = $this->get('Tempo');
-        $this->equipepiloto = $this->get('EquipePiloto');
         $this->qtdeetapas = $this->get('QtdeEtapas');
 
         $doc = JFactory::getDocument();

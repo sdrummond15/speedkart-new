@@ -12,10 +12,6 @@ $count = 1;
 
 $qtdmelhorvolta = 0;
 
-$qtdeetapas = $this->qtdeetapas;
-
-$qtdeetapas = $qtdeetapas[0]->qtdeetapas;
-
 echo '<div class="classificacao">';
 
 echo '<h1>Classifica&ccedil;&atilde;o por Pilotos - FURIOUS</h1>';
@@ -188,20 +184,9 @@ foreach ($this->pilotoequipefurious as $pilotoequipe) {
 
     $totpontos2sem = 0;
 
-    $totpontoseq = 0;
-
-
-
     $minpontos1 = 30;
 
     $minpontos2 = 0;
-
-    if ($countetapas > 2) {
-
-        $minpontos1 = 30;
-
-
-    }
 
 
 
@@ -247,28 +232,25 @@ foreach ($this->pilotoequipefurious as $pilotoequipe) {
 
 
     $bonusmelhorvolta = 0;
-
-    $bonusmelhorvoltaeq = 0;
-
+    $bonusmelhorvolta1sem = 0;
+    $bonusmelhorvolta2sem = 0;
     foreach ($this->melhortempo as $melhortempo) {
-
         if ($pilotoequipe->id_piloto == $melhortempo->id_piloto) {
-
             $bonusmelhorvolta++;
+            if ($melhortempo->etapa < 114){
+                $bonusmelhorvolta1sem++;
+            }else{
+                $bonusmelhorvolta2sem++;
+            }  
 
         }
 
     }
 
-    if ($bonusmelhorvolta > 0) {
-
-        //echo $bonus
 
         $totpontos = $totpontos + $bonusmelhorvolta;
-
-        $totpontoseq = $totpontoseq + $bonusmelhorvolta;
-
-    }
+        $totpontos1sem = $totpontos1sem + $bonusmelhorvolta1sem;
+        $totpontos2sem = $totpontos2sem + $bonusmelhorvolta2sem;
 
     $qtdmelhorvolta = 0;
 
@@ -283,7 +265,7 @@ foreach ($this->pilotoequipefurious as $pilotoequipe) {
         $descarte = CompetitionsModelCompetitions::getDescartes($etapas->etapa, $pilotoequipe->id_piloto);
 
         $desc_publis = 1;
-		if (empty($descarte)) {
+		if (empty($descarte) and ($etapas->etapa < 114)) {
 
             		$pontos = 0;
 
@@ -295,33 +277,11 @@ foreach ($this->pilotoequipefurious as $pilotoequipe) {
 
         	}
 
-        	if (($minpontos1 > $pontos) and ($desc_publis == 1)) {
-
+        	if (($minpontos1 > $pontos) and ($desc_publis == 1) and ($descarte[0]->etapa < 114)) {
             $minpontos1 = $pontos;
 	    
 
-        } else{
-            
-                if (empty($descarte)) {
-    
-                    $pontos = 0;
-        
-                } else {
-        
-                    $pontos = $descarte[0]->pontos;
-        
-                    $desc_publis = $descarte[0]->published;
-        
-                }
-        
-                if (($minpontos2 > $pontos) and ($desc_publis == 1)) {
-        
-                    $minpontos2 = $pontos;
-        
-                    $minpontos1 = $pontos;
-        
-                } 
-            }
+        }
 	
 	
     };

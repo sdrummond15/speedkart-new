@@ -55,7 +55,7 @@
 
 .classificacao table tr td:nth-child(2),
 .classificacao table tr td:nth-child(3) {
-    text-align: left;
+    text-align: center;
     padding: 2px 10px;
 }
 

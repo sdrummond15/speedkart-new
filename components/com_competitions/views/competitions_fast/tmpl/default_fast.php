@@ -134,7 +134,9 @@ echo '<th class="rotate"><div><span>Descarte 2</span></div></th>';
 
 echo '<th>Total</th>';
 
+echo '<th class="rotate"><div><span>1º Semestre</span></div></th>';
 
+echo '<th class="rotate"><div><span>2º Semestre</span></div></th>';
 
 echo '</tr>';
 

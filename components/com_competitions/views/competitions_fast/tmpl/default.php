@@ -12,9 +12,6 @@ $count = 1;
 
 $qtdmelhorvolta = 0;
 
-$qtdeetapas = $this->qtdeetapas;
-
-$qtdeetapas = $qtdeetapas[0]->qtdeetapas;
 
 echo '<div class="classificacao">';
 
@@ -134,7 +131,9 @@ echo '<th class="rotate"><div><span>Descarte 2</span></div></th>';
 
 echo '<th>Total</th>';
 
+echo '<th class="rotate"><div><span>1º Semestre</span></div></th>';
 
+echo '<th class="rotate"><div><span>2º Semestre</span></div></th>';
 
 echo '</tr>';
 
@@ -168,7 +167,9 @@ echo '<td>DSC2</td>';
 
 echo '<td>PTS</td>';
 
+echo '<td>PTS</td>';
 
+echo '<td>PTS</td>';
 
 echo '</tr>';
 
@@ -181,19 +182,13 @@ foreach ($this->pilotoequipe as $pilotoequipe) {
 
     $totpontos = 0;
 
-    $totpontoseq = 0;
+    $totpontos1sem = 0;
 
+    $totpontos2sem = 0;
 
-
-    $minpontos1 = 0;
+    $minpontos1 = 30;
 
     $minpontos2 = 0;
-
-    if ($countetapas > 2) {
-
-        $minpontos1 = 30;
-
-    }
 
 
 
@@ -206,16 +201,22 @@ foreach ($this->pilotoequipe as $pilotoequipe) {
 
             //Pegando ETAPAS
 
+            $numetapas=0;
             foreach ($this->etapas as $etapas) {
-
+                    $numetapas = $numetapas + 1;
                 //Pegando ETAPAS de acordo com PONTO
 
                 if ($pontos->etapa == $etapas->etapa) {
 
-                    $totpontos = $totpontos + $pontos->pontos;                    
+                    $totpontos = $totpontos + $pontos->pontos;
+                    if ($numetapas < 7){
+                        $totpontos1sem = $totpontos1sem + $pontos->pontos;
+
+                    }else{
+                        $totpontos2sem = $totpontos2sem + $pontos->pontos;
+                    }                   
 
                 }
-
             }
 
         }
@@ -227,13 +228,13 @@ foreach ($this->pilotoequipe as $pilotoequipe) {
 
     $bonuspart = 0;
 
-    $qtdepiloto = CompetitionsModelCompetitions_fast::getQtdePiloto($pilotoequipe->id_piloto);
+   // $qtdepiloto = CompetitionsModelCompetitions_fast::getQtdePiloto($pilotoequipe->id_piloto);
 
 
 
     $bonusmelhorvolta = 0;
-
-    $bonusmelhorvoltaeq = 0;
+    $bonusmelhorvolta1sem = 0;
+    $bonusmelhorvolta2sem = 0;
 
     foreach ($this->melhortempo as $melhortempo) {
 
@@ -241,29 +242,19 @@ foreach ($this->pilotoequipe as $pilotoequipe) {
 
             $bonusmelhorvolta++;
 
-            $bonusmelhorvoltaeq++;
+            if ($melhortempo->etapa < 114){
+                $bonusmelhorvolta1sem++;
+            }else{
+                $bonusmelhorvolta2sem++;
+            }  
 
         }
 
     }
 
-    if ($bonusmelhorvolta > 0) {
-
-        //echo $bonus
-
         $totpontos = $totpontos + $bonusmelhorvolta;
-
-        $totpontoseq = $totpontoseq + $bonusmelhorvolta;
-
-    }
-
-    if ($bonusmelhorvoltaeq > 0) {
-
-        //echo $bonus
-
-         // $totpontoseq = $totpontoseq + $bonusmelhorvoltaeq;
-
-    }
+        $totpontos1sem = $totpontos1sem + $bonusmelhorvolta1sem;
+        $totpontos2sem = $totpontos2sem + $bonusmelhorvolta2sem;
 
     $qtdmelhorvolta = 0;
 
@@ -272,11 +263,11 @@ foreach ($this->pilotoequipe as $pilotoequipe) {
     $qtdmelhorvoltaeq = 0;
 
     $melhoreq = 0;
-
+    $etapasreal = 0;
     foreach ($this->etapas as $etapas) {
 
         $descarte = CompetitionsModelCompetitions_fast::getDescartes($etapas->etapa, $pilotoequipe->id_piloto);
-
+        $etapasreal = $etapasreal + 1;
         $desc_publis = 1;
 		if (empty($descarte)) {
 
@@ -290,34 +281,11 @@ foreach ($this->pilotoequipe as $pilotoequipe) {
 
         	}
 
-        	if (($minpontos1 > $pontos) and ($desc_publis == 1)) {
-
+        	if (($minpontos1 > $pontos) and ($desc_publis == 1) and ($etapasreal < 7)) {
             $minpontos1 = $pontos;
 	    
 
-        } else{
-            
-                if (empty($descarte)) {
-    
-                    $pontos = 0;
-        
-                } else {
-        
-                    $pontos = $descarte[0]->pontos;
-        
-                    $desc_publis = $descarte[0]->published;
-        
-                }
-        
-                if (($minpontos2 > $pontos) and ($desc_publis == 1)) {
-        
-                    $minpontos2 = $pontos;
-        
-                    $minpontos1 = $pontos;
-        
-                } 
-            }
-	
+        }
 	
     };
 
@@ -326,6 +294,10 @@ foreach ($this->pilotoequipe as $pilotoequipe) {
     $classifica[$count] = new stdClass();
 
     $classifica[$count]->totpontos = $totpontos - $minpontos1 - $minpontos2;
+
+    $classifica[$count]->totpontos1sem = $totpontos1sem - $minpontos1;
+
+    $classifica[$count]->totpontos2sem = $totpontos2sem - $minpontos2;
 
     $classifica[$count]->id_piloto = $pilotoequipe->id_piloto;
 
@@ -462,7 +434,11 @@ foreach ($classifica as $classificaasc) {
 
     echo '<td class="backvermelho">' . $classificaasc->descarte2 . '</td>';
 
-    echo '<td class="azul">' . str_replace('.', ',', $classificaasc->totpontos) . '</td></tr>';
+    echo '<td class="azul">' . str_replace('.', ',', $classificaasc->totpontos) . '</td>';
+
+    echo '<td class="azul">' . str_replace('.', ',', $classificaasc->totpontos1sem) . '</td>';
+
+    echo '<td class="azul">' . str_replace('.', ',', $classificaasc->totpontos2sem) . '</td></tr>';
 
     $countasc++;
 
