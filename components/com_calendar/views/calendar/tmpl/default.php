@@ -2,7 +2,7 @@
     <?php
     $counttable = 0;
     $table = '';
-    foreach ($this->calendar as $calendar):
+    foreach ($this->calendar as $calendar) :
         $campeonato = $calendar->campeonato;
         $ano = $calendar->ano;
         $table .= '<tr>';
@@ -52,7 +52,7 @@
         }
         $table .= '<td>' . $dia . ' de ' . $m . '</td>';
         $table .= '<td>' . $calendar->hora . '</td>';
-        $table .= '<td><a href="index.php/campeonato/todas-etapas/circuit?id_circuito=' . $calendar->id_circuito . '">' . $calendar->circuito . '</a></td>';
+        // $table .= '<td><a href="index.php/campeonato/todas-etapas/circuit?id_circuito=' . $calendar->id_circuito . '">' . $calendar->circuito . '</a></td>';
         // $table .= '<td>' . $calendar->grid . '</td>';
         $table .= '</tr>';
 
@@ -61,19 +61,21 @@
     ?>
     <h1><?php echo $campeonato; ?> de Kartistas Amadores de Belo Horizonte</h1>
     <h2>Calendário para o ano de <?php echo $ano; ?></h2>
-    <table>
-        <thead>
-        <tr>
-            <td>Etapa</td>
-            <td>Kartódromo</td>
-            <td>Data</td>
-            <td>Horário</td>
-            <td>Circuito</td>
-            <!-- <td>Grid</td> -->
-        </tr>
-        </thead>
-        <tbody>
-        <?php echo $table ?>
-        </tbody>
-    </table>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <td>Etapa</td>
+                    <td>Kartódromo</td>
+                    <td>Data</td>
+                    <td>Horário</td>
+                    <!-- <td>Circuito</td> -->
+                    <!-- <td>Grid</td> -->
+                </tr>
+            </thead>
+            <tbody>
+                <?php echo $table ?>
+            </tbody>
+        </table>
+    </div>
 </div>

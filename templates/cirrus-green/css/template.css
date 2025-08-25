@@ -2842,10 +2842,6 @@ figcaption {
 }
 
 @media screen and (max-width:1024px) {
-    #topmenu_wrap {
-        width: calc(100% - 110px);
-    }
-
     #topmenu ul.menu {
         display: none;
     }

@@ -1,8 +1,11 @@
 .pilots {
-    display: table;
-}
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+  }
 
-.pilots h1 {
+h1 {
     font-family: 'daggersquare_oblique';
     color: #FFF;
     font-size: 30px;
@@ -11,14 +14,13 @@
 }
 
 .pilot {
-    width: calc(20% - 20px);
-    display: inline-block;
     text-align: center;
-    margin: 0 10px 40px 10px;
-    padding: 10px 0;
+    padding: 10px;
     border-radius: 10px;
     background-color: #700000;
-}
+    display: flex;
+    flex-direction: column;
+  }
 
 .pilot h1 {
     font-family: 'daggersquare';
@@ -55,9 +57,7 @@
 }
 
 @media screen and (max-width: 1000px) {
-    .pilot {
-        width: calc(25% - 20px);
-    }
+
 }
 
 @media screen and (max-width: 768px) {
@@ -66,7 +66,6 @@
         margin-bottom: 20px;
     }
     .pilot {
-        width: calc(33.33% - 20px);
     }
     .pilot h1{
         font-size: 14px;
@@ -78,8 +77,8 @@
     .pilots h1 {
         font-size: 20px;
     }
-    .pilot {
-        width: calc(50% - 20px);
+    .pilots {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     }
     .pilot h1{
         font-size: 14px;

@@ -26,22 +26,30 @@
 }
 
 .calendar thead {
-    background-color: #ca2302;
+    background-color: #FF2800;
 }
 
 .calendar thead td {
     text-align: center;
+    border-color: #FFBF00;
+    color: #FFFFFF;
     font-family: 'daggersquare';
     font-size: 18px;
     padding: 5px 10px;
     line-height: 1.6;
 }
 
+.calendar thead tr {
+    border: none;
+    border-color: #FFBF00
+}
 .calendar tbody td {
     font-family: 'open_sanslight';
-    padding: 5px 10px;
+    padding: 15px 10px;
     line-height: 1.6;
+    border-color: #FFBF00
 }
+
 
 @media screen and (max-width: 1000px) {
     .calendar table,
