@@ -531,7 +531,7 @@ p.link-c {
 }
 
 #header {
-    width: 1290px;
+    width: 1170px;
     margin: auto;
     display: table;
     position: relative;
@@ -555,12 +555,10 @@ p.link-c {
 }
 
 #topnav {
-    border-bottom-left-radius: 50% 20%;
-    border-bottom-right-radius: 50% 20%;
+    /* border-bottom-left-radius: 50% 20%;
+    border-bottom-right-radius: 50% 20%; */
     overflow: hidden !important;
     display: block;
-    width: 120%;
-    margin-left: -10%;
 }
 
 #search_wrap {
