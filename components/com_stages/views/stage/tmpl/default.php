@@ -84,7 +84,7 @@
                     <a href="index.php/campeonato/pilotos/pilot?id_piloto=<?php echo $firsts->id_piloto; ?>" style="background:url('<?php echo (!empty($firsts->foto)) ? JUri::base().$firsts->foto : JUri::base().'images/pilotos/default.jpg'; ?>');"></a>
                 </div>
                 <h4>
-                    <a href="index.php/campeonato/pilotos/pilot?id_piloto=<?php echo $firsts->id_piloto; ?>"><?php echo $firsts->piloto; ?></a>
+                    <p> <?php echo $firsts->piloto; ?> </p>
                 </h4>
                 <p><?php echo $firsts->equipe; ?></p>
                 <h3>Tempo: <?php echo $firsts->melhor_volta; ?></h3>

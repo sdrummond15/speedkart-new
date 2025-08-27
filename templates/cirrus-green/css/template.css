@@ -3048,9 +3048,13 @@ figcaption {
 
 }
 
-@media screen and (max-width:600px) {
+@media screen and (max-width:650px) {
     .copyrightint {
         font-size: 12px;
+    }
+
+    #stages {
+        flex-wrap: wrap;
     }
 }
 

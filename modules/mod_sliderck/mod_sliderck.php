@@ -41,7 +41,6 @@ $items = $loaderClass::getItems($params);
 // lightbox management
 $lightboxAttribs = '';
 $linkClass = '';
-/** not available in Light version
 if (file_exists(JPATH_SITE . '/plugins/system/mediabox_ck/mediabox_ck.php') && $params->get('lightbox', 'mediabox') == 'mediabox') {
 	// get attribute from system plugin Mediabox
 	$plugin = JPluginHelper::getPlugin('system', 'mediabox_ck');
@@ -53,7 +52,7 @@ if (file_exists(JPATH_SITE . '/plugins/system/mediabox_ck/mediabox_ck.php') && $
 			$lightboxAttribs = $lightboxParams->get('attribname')  .'[sliderck' . $module->id . ']';
 		}
 	}
-} */
+}
 
 // if no item to load then exit
 if (empty($items) OR !$items) {

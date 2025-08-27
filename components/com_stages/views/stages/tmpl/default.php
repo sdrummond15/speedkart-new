@@ -31,9 +31,9 @@
                 <?php
                 for ($i = 0; $i <= 4; $i++) {
                     echo '<p class="qualifica">'
-                        . '<a href="index.php/campeonato/pilotos/pilot?id_piloto=' . $podio[$i]->id_piloto . '">'
+                        . '<p>'
                         . $podio[$i]->posicao . 'º Lugar - ' . $podio[$i]->piloto
-                        . '</a>'
+                        . '</p>'
                         . '</p>';
                 }
                 ?>
