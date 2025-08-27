@@ -35,7 +35,9 @@
         $gridresult = $db->loadObjectList();
 
     }
-
+    ?>
+<div id="stages">
+    <?php
     foreach ($data as $nextdata) {
 
 
@@ -185,8 +187,9 @@
         }
 
     }
-
     ?>
+</div>
+
 
 
 

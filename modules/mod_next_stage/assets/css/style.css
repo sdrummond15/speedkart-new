@@ -46,9 +46,13 @@
     text-decoration: none;
 }
 
+#stages {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 @media screen and (max-width: 1200px) {
     .moduletable-next {
-        width: 96%;
     }
 }
 
