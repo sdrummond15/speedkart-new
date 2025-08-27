@@ -13,6 +13,8 @@ $document->addStyleSheet($this->baseurl . '/templates/system/css/general.css');
 $document->addStyleSheet($this->baseurl . '/templates/' . $this->template . '/css/fontawesome-all.min.css');
 $document->addStyleSheet($this->baseurl . '/templates/' . $this->template . '/css/bootstrap.min.css');
 $document->addStyleSheet($this->baseurl . '/templates/' . $this->template . '/css/template.css');
+$document->addStyleSheet($this->baseurl . '/templates/' . $this->template . '/css/custom.css');
+
 $document->addScript($this->baseurl . '/templates/' . $this->template . '/js/sfhover.js');
 $document->addScript($this->baseurl . '/templates/' . $this->template . '/js/jquery-1.11.3.js');
 $document->addScript($this->baseurl . '/templates/' . $this->template . '/js/bootstrap.min.js');
