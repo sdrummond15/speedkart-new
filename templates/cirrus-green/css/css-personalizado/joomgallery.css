@@ -1,0 +1,4 @@
+.jg_element_gal, .jg_element_gal_r {
+    display: flex;
+    flex-direction: column;
+}
