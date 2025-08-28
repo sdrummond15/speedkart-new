@@ -1,5 +1,6 @@
 jQuery(document).ready(function ($) {
-  $("#header_wrap").next().css("margin-top", $("#header_wrap").height());
+
+    $('#wrapper').css('height', $('#header_wrap').outerHeight(true) + 'px');
   /*MENU RESPONSIVO*/
   $(".menuresp li.parent > a, .menuresp li.parent > span").append(
     ' <button type="button"><i class="fas fa-chevron-down"></i></button>'
@@ -58,4 +59,21 @@ jQuery(document).ready(function ($) {
       $(".item-page-home .intro-image").height() * -1
     );
   }
+});
+
+jQuery(function ($) {
+  function updateWrapperHeight() {
+    const h = $('#header_wrap').outerHeight(true) - 1;
+    $('#wrapper').css('height', h + 'px');
+  }
+
+  // Load completo + RAF garante layout final
+  $(window).on('load', function () {
+    requestAnimationFrame(updateWrapperHeight);
+  });
+
+  // Atualiza dinamicamente ao redimensionar
+  $(window).on('resize', function () {
+    requestAnimationFrame(updateWrapperHeight);
+  });
 });

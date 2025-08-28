@@ -488,8 +488,6 @@ hr {
     display: block;
     padding: 0;
     min-height: 10%;
-    height: auto !important;
-    height: 100%;
 }
 
 #contact-form button.validate, #login-form input.button, #mailto-window button, #member-profile button.validate, #member-registration button.validate, #searchForm button, #user-registration button.validate, .btn, .login button, .logout button {
@@ -548,7 +546,7 @@ p.link-c {
     float: left;
     padding: 10px 45px 0 0;
     background: #FFF;
-    clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 85% 100%, -1% 101%);
 }
 
 #logo a {
