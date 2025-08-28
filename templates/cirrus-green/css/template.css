@@ -1581,9 +1581,11 @@ fieldset div div input {
     margin: 60px auto;
 }
 
+/** Contacts **/
+
 h3.pane-toggler {
     font-size: 1.1em;
-    border-top: 1px solid #e2e2e2;
+    border-top: 1px solid rgb(226, 226, 226);
     margin-bottom: 2px;
     padding-bottom: 8px;
     padding-top: 8px;
@@ -1591,7 +1593,7 @@ h3.pane-toggler {
 
 h3.pane-toggler-down {
     font-size: 1.1em;
-    border-top: 1px solid #e2e2e2;
+    border-top: 1px solid rgb(226, 226, 226);
     margin-bottom: 2px;
     padding-bottom: 8px;
     padding-top: 8px;
@@ -1606,16 +1608,18 @@ address span {
     margin-bottom: 10px;
 }
 
-.panel .contact-form, .panel .contact-miscinfo {
-    padding: 10px;
+.panel .contact-form,
+.panel .contact-miscinfo {
+    padding: 10px
 }
 
-.contact .panel .contact-address, .contact .panel .contact-form form {
-    margin: 20px 0 0 0;
+.contact .panel .contact-form form,
+.contact .panel .contact-address {
+    margin: 20px 0 0 0
 }
 
 #contact-form fieldset {
-    border: 0;
+    border: 0px;
 }
 
 #contact-form fieldset dl dt {
@@ -1632,7 +1636,7 @@ address span {
 }
 
 .star {
-    color: #c00;
+    color: #cc0000;
 }
 
 .accordion-heading {
@@ -1644,7 +1648,7 @@ address span {
 
 .accordion-heading a {
     text-decoration: none;
-    color: #333;
+    color: #333333;
     cursor: default;
 }
 
@@ -1652,11 +1656,13 @@ div#basic-details div div img {
     padding-bottom: 10px;
 }
 
-div#basic-details div dl dt span img, div#display-misc div div dl dt span img {
+div#basic-details div dl dt span img,
+div#display-misc div div dl dt span img {
     display: none;
 }
 
 form#adminForm ul li {
+    /*background-color: #000;*/
     background-color: inherit;
     height: 20px;
     margin: 0;
@@ -2593,31 +2599,54 @@ a.readmore-link-c {
 }
 
 .titulo-contato h2 {
-    text-decoration: none;
-    font-family: 'Catamaran';
-    font-size: 20px;
-    text-align: center;
+    line-height: 1.2;
+    color: #010530;
+    font-size: 24px;
+    margin: 0 0 30px 0;
+    text-align: left;
+    border-bottom: 1px solid #383838;
 }
 
 .contact-form fieldset {
-    width: calc(50% - 20px);
+    width: 46%;
     float: left;
-    margin: 0 10px;
+    padding: 10px 2%;
 }
 
-.contact-form textarea, .contact-form input {
-    width: 100%;
-    padding: 5px 10px;
-    margin-bottom: 8px;
-    border: 0;
-    background-color: #eee;
-    font-family: 'Catamaran';
+.contact-form input::placeholder {}
+
+.contact-form input {
+    width: 96%;
+    padding: 8px 2%;
+    margin-bottom: 14px;
+    background-color: #f1f1f1 !important;
+    color: #000;
+    font-family: Arial;
     font-size: 18px;
+    border-radius: 5px;
+    border: 1px solid #14395F;
 }
 
 .contact-form textarea {
-    height: 184px;
-    margin-bottom: 0;
+    width: 96%;
+    padding: 8px 2%;
+    color: #000;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-family: Arial;
+    background-color: #EEE;
+    /* display: table; */
+    height: 128px;
+    border-radius: 5px;
+    border: 1px solid #14395F;
+}
+
+.contact-form .form-actions button {
+    float: right;
+    line-height: 1;
+    text-align: center;
+    font-family: Arial !important;
+    font-size: 18px;
 }
 
 /** Menu Responsive **/
