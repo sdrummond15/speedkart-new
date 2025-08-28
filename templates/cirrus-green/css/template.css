@@ -525,11 +525,11 @@ p.link-c {
     left: 0;
     z-index: 9999;
     transition: all .2s;
-    background-color: #FF2800;
+    background-color: #000;
 }
 
 #header {
-    background: #FF2800;
+    background: #000;
     width: 1170px;
     display: table;
     position: relative;
@@ -537,7 +537,7 @@ p.link-c {
 }
 
 #a {
-    background: #FFF;
+    background: #ff2800;
     flex: 0.5;
     display: block;
 }
@@ -545,7 +545,12 @@ p.link-c {
 #logo {
     float: left;
     padding: 10px 45px 0 0;
-    background: #FFF;
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.7) 0%,
+        #ff2800 40%,
+        #ff2800 100%
+      );
     clip-path: polygon(0 0, 100% 0, 85% 100%, -1% 101%);
 }
 
@@ -692,33 +697,44 @@ p.link-c {
     font-size: 18px;
     font-weight: 300;
     display: block;
-    color: #000;
+    color: #FFF;
     text-decoration: none;
     text-transform: uppercase;
     cursor: pointer;
     padding: 8px 30px;
-    background-color: #FF2800;
+    background-color: #000;
 }
 
 #topmenu span:hover,
 #topmenu a:hover {
-    color: #FFB800;
-    background-color: #FF3800;
-    clip-path: polygon(7% 0, 100% 0, 93% 100%, 0% 100%);
+    color: #000;
+    background-color: #eee;
+    clip-path: polygon(4% 0, 100% 0, 95% 100%, 0% 100%);
 }
 
 #topmenu li.active a, #topmenu li.active a:hover {
     text-decoration: none;
     font-weight: 600;
-    color: #FFB800;
+    color: #000;
+    background-color: #fff;
+    clip-path: polygon(7% 0, 100% 0, 93% 100%, 0% 100%);
 }
 
 #topmenu li {
     float: left;
 }
 
-#topmenu li.active {
-    /* background-color: #000 */
+#topmenu li.active ul{
+    background-color: #fff;
+}
+
+#topmenu li ul li:hover{
+    background-color: #333;
+}
+
+#topmenu li.active ul a:hover {
+    background-color: #333;
+    color: #fff;
 }
 
 #topmenu li ul {
@@ -726,7 +742,7 @@ p.link-c {
     font-size: 12px;
     width: 240px;
     left: -999em;
-    background-color: #FF2800;
+    background-color: #eee;
     margin-left: -40px;
     z-index: 100;
     margin-top: 0 !important;
@@ -755,10 +771,6 @@ p.link-c {
 
 #topmenu li ul a:hover {
     font-weight: 600;
-}
-
-#topmenu li.active ul a:hover {
-    background-color: #333;
 }
 
 #topmenu li ul ul {
@@ -967,7 +979,7 @@ p.link-c {
 #content-w3 {
     width: 100%;
     float: left;
-    padding-top: 60px;
+    /* padding-top: 60px; */
     overflow: hidden;
     margin-bottom: 60px;
 }

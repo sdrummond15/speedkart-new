@@ -2,8 +2,6 @@
     display: block;
     margin: auto;
     align-items: center;
-    max-width: 1170px;
-    width:100%;
 }
 
 .moduletable-next h3 {
@@ -22,7 +20,6 @@
 }
 
 .next-stage.left {
-    clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
     padding-right: 7%;
 }
 
@@ -46,7 +43,7 @@
 .descstage a {
     display: table;
     margin: 30px auto 0 auto;
-    color: #201c1c;
+    color: #fff;
     font-family: 'daggersquare_oblique';
 }
 
@@ -62,27 +59,43 @@
 }
 
 .descstage.data{
-    color: #FF2800;
+    color: #FF2800 !important;
     font-style: italic;
     font-size: 13px;
 }
 
+/* .descstage.left p {
+    color: #fff;
+} */
+
 #stages {
     display: flex;
     justify-content: space-between;
-    margin: auto;
     position: relative;
-    width:100%
+    max-width: 1170px;
+    width: 100%;
+    margin: auto;
+    clip-path: polygon(5% 0, 100% 0, 95% 100%, 0% 100%);
+    background: none;
+    border: solid 5px #ff2800;
+    padding: 0 3% 0 3%;
+    margin-top: 50px;
 }
 
-#stages::before,
+/* #stages_wrap {
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+    background: linear-gradient(to right, #3e3e3e 20%, #fff 20%);
+} */
+
+/* #stages::before,
 #stages::after {
     content: '';
     position: absolute;
     background-color: #FFB800;
     z-index: 10;
-    width: 2px;   /* Espessura da listra */
-    height: 120%; /* Altura maior para compensar a rotação */
+    width: 2px;
+    height: 120%;
     transform: rotate(8deg);
 }
 
@@ -94,7 +107,7 @@
 #stages::after {
     left: 53.5%;
     top: 0%;
-}
+} */
 
 @media screen and (max-width: 1100px) {
 

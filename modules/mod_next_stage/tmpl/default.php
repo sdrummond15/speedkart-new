@@ -1,208 +1,185 @@
+<?php
 
 
 
+$dataatual = time();
 
-    <?php
+$datahj = date('Y-m-d', $dataatual);
 
+$count = 0;
 
 
-    $dataatual = time();
 
-    $datahj = date('Y-m-d', $dataatual);
+foreach ($grid as $grid) {
 
-    $count = 0;
 
 
+    $db = JFactory::getDBO();
 
-    foreach ($grid as $grid) {
+    $query = $db->getQuery(true);
 
+    $query->select('date AS data');
 
+    $query->from('#__stages');
 
-        $db = JFactory::getDBO();
+    $query->where('id_championship = ' . $grid->campeonato);
 
-        $query = $db->getQuery(true);
+    $query->where('id = ' . $grid->etapa);
 
-        $query->select('date AS data');
+    $db->setQuery($query);
 
-        $query->from('#__stages');
+    $gridresult = $db->loadObjectList();
+}
+?>
+<div id="stages_wrap">
+    <div id="stages">
+        <?php
+        foreach ($data as $nextdata) {
 
-        $query->where('id_championship = ' . $grid->campeonato);
 
-        $query->where('id = ' . $grid->etapa);
 
-        $db->setQuery($query);
+            if ($nextdata->data >= $datahj) {
 
-        $gridresult = $db->loadObjectList();
 
-    }
-    ?>
-<div id="stages">
-    <?php
-    foreach ($data as $nextdata) {
 
+                if ($count < 2) {
 
+                    $data = explode('-', $nextdata->data);
 
-        if ($nextdata->data >= $datahj) {
+                    $dia = $data[2];
 
+                    $mes = $data[1];
 
+                    switch ($mes) {
 
-            if ($count < 2) {
+                        case 01:
 
-                $data = explode('-', $nextdata->data);
+                            $m = 'Janeiro';
 
-                $dia = $data[2];
+                            break;
 
-                $mes = $data[1];
+                        case 02:
 
-                switch ($mes) {
+                            $m = 'Fevereiro';
 
-                    case 01:
+                            break;
 
-                        $m = 'Janeiro';
+                        case 03:
 
-                        break;
+                            $m = 'Março';
 
-                    case 02:
+                            break;
 
-                        $m = 'Fevereiro';
+                        case 04:
 
-                        break;
+                            $m = 'Abril';
 
-                    case 03:
+                            break;
 
-                        $m = 'Março';
+                        case 05:
 
-                        break;
+                            $m = 'Maio';
 
-                    case 04:
+                            break;
 
-                        $m = 'Abril';
+                        case 06:
 
-                        break;
+                            $m = 'Junho';
 
-                    case 05:
+                            break;
 
-                        $m = 'Maio';
+                        case 07:
 
-                        break;
+                            $m = 'Julho';
 
-                    case 06:
+                            break;
 
-                        $m = 'Junho';
+                        case 8:
 
-                        break;
+                            $m = 'Agosto';
 
-                    case 07:
+                            break;
 
-                        $m = 'Julho';
+                        case 9:
 
-                        break;
+                            $m = 'Setembro';
 
-                    case 8:
+                            break;
 
-                        $m = 'Agosto';
+                        case 10:
 
-                        break;
+                            $m = 'Outubro';
 
-                    case 9:
+                            break;
 
-                        $m = 'Setembro';
+                        case 11:
 
-                        break;
+                            $m = 'Novembro';
 
-                    case 10:
+                            break;
 
-                        $m = 'Outubro';
+                        case 12:
 
-                        break;
+                            $m = 'Dezembro';
 
-                    case 11:
+                            break;
+                    }
 
-                        $m = 'Novembro';
+                    if ($count == 0) {
+                        $class_side = 'left';
+                    } else {
+                        $class_side = 'right';
+                    }
 
-                        break;
+        ?>
 
-                    case 12:
+                    <div class="next-stage <?php echo $class_side ?>">
 
-                        $m = 'Dezembro';
+                        <div class="imgstage" style="background: url('<?php echo JURI::base() . $nextdata->circuitoimg; ?>')"></div>
 
-                        break;
+                        <div class="descstage <?php echo $class_side?>">
 
-                }
+                            <p class="descstage data"><?php echo $dia; ?> de <?php echo $m; ?>, <?php echo $nextdata->horario ?> </p>
 
-            if ($count == 0) {
-                $div_class = 'next-stage left';
-            } 
-            else {
-                $div_class = 'next-stage right';
-            }
+                            <p><b><?php echo $nextdata->title; ?></b></p>
 
-                ?>
+                            <p><?php echo $nextdata->kartodromo; ?>, <br> <?php echo $nextdata->tracado; ?></p>
 
-        <div class="<?php echo $div_class?>">
 
-                <div class="imgstage" style="background: url('<?php echo JURI::base().$nextdata->circuitoimg; ?>')"></div>
-
-                <div class="descstage">
-
-                <p class="descstage data"><?php echo $dia; ?> de <?php echo $m; ?>, <?php echo $nextdata->horario?> </p>
-
-                    <p><b><?php echo $nextdata->title; ?></b></p>
-
-                    <p><?php echo $nextdata->kartodromo; ?>, <br> <?php echo $nextdata->tracado; ?></p>
-
-
-
-                    <?php
-
-                    if (empty($gridresult)) {
-
-                        if ($gridresult[0]->data >= $datahj) {
-
-                            ?>
-
-                            <p><a href="index.php/grid?layout=default&id_stage=<?php echo $nextdata->id_stage; ?>&id_championship=<?php echo $nextdata->id_championship; ?>">Confira o Grid >>></a></p>
-
-                            <p></p>
 
                             <?php
 
-                        }
+                            if (empty($gridresult)) {
 
-                    }
+                                if ($gridresult[0]->data >= $datahj) {
 
-                    ?>
+                            ?>
+
+                                    <p><a href="index.php/grid?layout=default&id_stage=<?php echo $nextdata->id_stage; ?>&id_championship=<?php echo $nextdata->id_championship; ?>">Confira o Grid >>></a></p>
+
+                                    <p></p>
+
+                            <?php
+
+                                }
+                            }
+
+                            ?>
 
 
 
-                </div>
+                        </div>
 
-                </div>
+                    </div>
 
 
 
-                <?php
+        <?php
 
-                $count++;
-
+                    $count++;
+                }
             }
-
         }
-
-    }
-    ?>
+        ?>
+    </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-

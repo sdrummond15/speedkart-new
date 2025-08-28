@@ -358,7 +358,7 @@ foreach ($classifica as $classificaasc) {
 
     echo '<td>' . $countasc . '</td>';
 
-    echo '<td>' . $classificaasc->piloto . ' - '. $classificaasc->id_piloto .'</td>';
+    echo '<td>' . $classificaasc->piloto . '</td>';
 
     foreach ($this->etapas as $etapas) {
 
