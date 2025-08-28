@@ -130,23 +130,26 @@
 
                 }
 
+            if ($count == 0) {
+                $div_class = 'next-stage left';
+            } 
+            else {
+                $div_class = 'next-stage right';
+            }
+
                 ?>
 
-                <div class="next-stage">
+        <div class="<?php echo $div_class?>">
 
                 <div class="imgstage" style="background: url('<?php echo JURI::base().$nextdata->circuitoimg; ?>')"></div>
 
                 <div class="descstage">
 
+                <p class="descstage data"><?php echo $dia; ?> de <?php echo $m; ?>, <?php echo $nextdata->horario?> </p>
+
                     <p><b><?php echo $nextdata->title; ?></b></p>
 
-                    <p><?php echo $dia; ?> de <?php echo $m; ?></p>
-
-                    <p>Horário: <?php echo $nextdata->horario; ?>hrs</p>
-
-                    <p>Local: <?php echo $nextdata->kartodromo; ?></p>
-
-                    <p>Traçado: <?php echo $nextdata->tracado; ?></p>
+                    <p><?php echo $nextdata->kartodromo; ?>, <br> <?php echo $nextdata->tracado; ?></p>
 
 
 
