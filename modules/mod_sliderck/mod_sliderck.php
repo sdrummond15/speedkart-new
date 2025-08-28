@@ -152,7 +152,7 @@ $js .= "jQuery(document).ready(function(){
 		freeMode: " . $params->get('freemode', 'false') . ",
 		speed: " . $params->get('speed', '300') . ",
 		" . ($params->get('autoplay', 0) ? "autoplay: " . $params->get('autoplaytime', '300') . "," : "") . "
-		autoplayDisableOnInteraction: true,
+		autoplayDisableOnInteraction: false,
 		autoplayStopOnLast: " . (bool)(1-(int)$params->get('loop', 'false')) . ",
 		effect: '" . $effect . "',
 		fade: {crossFade: true},
