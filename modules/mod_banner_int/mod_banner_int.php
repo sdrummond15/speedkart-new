@@ -13,8 +13,9 @@ defined('_JEXEC') or die;
 require_once dirname(__FILE__).'/helper.php';
 
 $document = JFactory::getDocument();
-$document->addStyleSheet(JURI::base(true) . '/modules/mod_banner_int/assets/css/style_banner_int.css');
+$document->addStyleSheet(JURI::base(true) . '/modules/mod_banner_int/assets/css/style.css');
 
+$imagem1 = $params->get('image');
 $module = JModuleHelper::getModule('banner_int');
 
 require JModuleHelper::getLayoutPath('mod_banner_int', $params->get('layout', 'default'));
