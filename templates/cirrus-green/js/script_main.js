@@ -1,5 +1,6 @@
 jQuery(document).ready(function ($) {
-  $("#header_wrap").next().css("margin-top", $("#header_wrap").height());
+
+    $('#wrapper').css('height', $('#header_wrap').outerHeight(true) + 'px');
   /*MENU RESPONSIVO*/
   $(".menuresp li.parent > a, .menuresp li.parent > span").append(
     ' <button type="button"><i class="fas fa-chevron-down"></i></button>'
@@ -44,18 +45,34 @@ jQuery(document).ready(function ($) {
 
   $(".menuresp").hide();
 
-  $("#gotomenu").click(function () {
-    $(".menuresp").slideToggle();
+$("#gotomenu").click(function () {
+    // 1. Pega o elemento do menu responsivo
+    var $menuResp = $(".menuresp");
+
+    // 2. Calcula a altura total do cabeçalho
+    var headerHeight = $('#header_wrap').outerHeight();
+
+    // 3. Define a posição 'top' do menu para ser exatamente abaixo do header
+    $menuResp.css('top', headerHeight + 'px');
+
+    // 4. Agora sim, abre ou fecha o menu com a animação
+    $menuResp.slideToggle();
+});
+});
+
+jQuery(function ($) {
+  function updateWrapperHeight() {
+    const h = $('#header_wrap').outerHeight(true) - 1;
+    $('#wrapper').css('height', h + 'px');
+  }
+
+  // Load completo + RAF garante layout final
+  $(window).on('load', function () {
+    requestAnimationFrame(updateWrapperHeight);
   });
 
-  if (home) {
-    var introImage = $(".item-page-home .intro-image").width();
-    var imgFulltext = $(".img-fulltext-right").outerWidth(true);
-    $(".item-page-home .intro-image").width(introImage - imgFulltext);
-
-    $(".img-fulltext-right").css(
-      "margin-top",
-      $(".item-page-home .intro-image").height() * -1
-    );
-  }
+  // Atualiza dinamicamente ao redimensionar
+  $(window).on('resize', function () {
+    requestAnimationFrame(updateWrapperHeight);
+  });
 });

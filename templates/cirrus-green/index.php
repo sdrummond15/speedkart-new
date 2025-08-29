@@ -68,8 +68,10 @@ if ($LeftMenuOn and $RightMenuOn) {
     <div id="wrapper">
 
         <div id="header_wrap">
-            <div id="header">
+            <div id="a">
 
+            </div>
+            <div id="header">
                 <!-- Logo -->
                 <div id="logo">
                     <?php if ($logo && $logoimage == 1) : ?>
@@ -121,120 +123,121 @@ if ($LeftMenuOn and $RightMenuOn) {
                     </div>
                 </div>
             </div>
-
-            <div class="menuresp">
-                <jdoc:include type="modules" name="position-1" />
-            </div>
-
+        </div>
+        
+        <div class="menuresp">
+            <jdoc:include type="modules" name="position-1" />
         </div>
 
-        <!-- TopNav -->
-        <?php if ($TopNavOn) : ?>
-            <div id="topnav_wrap">
-                <div id="topnav">
-                    <jdoc:include type="modules" name="position-13" style="xhtml" />
-                </div>
-            </div>
-        <?php endif; ?>
+    </div>
 
-        <!-- Breadcrumbs -->
-        <?php if ($this->countModules('position-2')) : ?>
-            <div id="breadcrumbs">
-                <jdoc:include type="modules" name="position-2" />
-            </div>
-        <?php endif; ?>
-
-        <!-- Content/Menu Wrap -->
-        <div id="content-menu_wrap_bg">
-            <div id="content-menu_wrap">
-
-                <!-- Left Menu -->
-                <?php if ($LeftMenuOn) : ?>
-                    <div id="leftmenu">
-                        <jdoc:include type="modules" name="position-7" style="xhtml" />
-                        <jdoc:include type="modules" name="position-4" style="xhtml" />
-                    </div>
-                    <div id="leftmenu-responsive">
-                        <jdoc:include type="modules" name="position-7" style="xhtml" />
-                        <jdoc:include type="modules" name="position-4" style="xhtml" />
-                    </div>
-                <?php endif; ?>
-
-                <!-- Contents -->
-                <div id="content-<?= $w ?>">
-                    <jdoc:include type="message" />
-                    <jdoc:include type="component" />
-                </div>
-
-                <!-- Right Menu -->
-                <?php if ($RightMenuOn) : ?>
-                    <div id="rightmenu">
-                        <jdoc:include type="modules" name="position-6" style="xhtml" />
-                        <jdoc:include type="modules" name="position-8" style="xhtml" />
-                        <jdoc:include type="modules" name="position-3" style="xhtml" />
-                    </div>
-                    <div id="rightmenu-responsive">
-                        <jdoc:include type="modules" name="position-6" style="xhtml" />
-                        <jdoc:include type="modules" name="position-8" style="xhtml" />
-                        <jdoc:include type="modules" name="position-3" style="xhtml" />
-                    </div>
-                <?php endif; ?>
-
-                <?php if ($this->countModules('position-12')) : ?>
-                    <div id="content-top">
-                        <jdoc:include type="modules" name="position-12" style="xhtml" />
-                    </div>
-                <?php endif; ?>
-
+    <!-- TopNav -->
+    <?php if ($TopNavOn) : ?>
+        <div id="topnav_wrap">
+            <div id="topnav">
+                <jdoc:include type="modules" name="position-13" style="xhtml" />
             </div>
         </div>
+    <?php endif; ?>
 
-        <!-- Footer -->
-        <?php if ($this->countModules('position-14')) : ?>
-            <div id="footer_wrap">
-                <div class="footer">
-                    <jdoc:include type="modules" name="position-14" style="xhtml" />
+    <!-- Breadcrumbs -->
+    <?php if ($this->countModules('position-2')) : ?>
+        <div id="breadcrumbs">
+            <jdoc:include type="modules" name="position-2" />
+        </div>
+    <?php endif; ?>
+
+    <!-- Content/Menu Wrap -->
+    <div id="content-menu_wrap_bg">
+        <div id="content-menu_wrap">
+
+            <!-- Left Menu -->
+            <?php if ($LeftMenuOn) : ?>
+                <div id="leftmenu">
+                    <jdoc:include type="modules" name="position-7" style="xhtml" />
+                    <jdoc:include type="modules" name="position-4" style="xhtml" />
                 </div>
+                <div id="leftmenu-responsive">
+                    <jdoc:include type="modules" name="position-7" style="xhtml" />
+                    <jdoc:include type="modules" name="position-4" style="xhtml" />
+                </div>
+            <?php endif; ?>
+
+            <!-- Contents -->
+            <div id="content-<?= $w ?>">
+                <jdoc:include type="message" />
+                <jdoc:include type="component" />
             </div>
-        <?php endif; ?>
 
-        <div id="box_wrap">
-            <div class="overlayer">
-                <!-- Banner/Links -->
-                <?php if (
-                    ($this->countModules('position-9')) ||
-                    ($this->countModules('position-10')) ||
-                    ($this->countModules('position-11'))
-                ) : ?>
+            <!-- Right Menu -->
+            <?php if ($RightMenuOn) : ?>
+                <div id="rightmenu">
+                    <jdoc:include type="modules" name="position-6" style="xhtml" />
+                    <jdoc:include type="modules" name="position-8" style="xhtml" />
+                    <jdoc:include type="modules" name="position-3" style="xhtml" />
+                </div>
+                <div id="rightmenu-responsive">
+                    <jdoc:include type="modules" name="position-6" style="xhtml" />
+                    <jdoc:include type="modules" name="position-8" style="xhtml" />
+                    <jdoc:include type="modules" name="position-3" style="xhtml" />
+                </div>
+            <?php endif; ?>
 
-                    <div id="box_placeholder">
-                        <div id="box1">
-                            <jdoc:include type="modules" name="position-9" style="xhtml" />
-                        </div>
-                        <div id="box2">
-                            <jdoc:include type="modules" name="position-10" style="xhtml" />
-                        </div>
-                        <div id="box3">
-                            <jdoc:include type="modules" name="position-11" style="xhtml" />
-                        </div>
+            <?php if ($this->countModules('position-12')) : ?>
+                <div id="content-top">
+                    <jdoc:include type="modules" name="position-12" style="xhtml" />
+                </div>
+            <?php endif; ?>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <?php if ($this->countModules('position-14')) : ?>
+        <div id="footer_wrap">
+            <div class="footer">
+                <jdoc:include type="modules" name="position-14" style="xhtml" />
+            </div>
+        </div>
+    <?php endif; ?>
+
+    <div id="box_wrap">
+        <div class="overlayer">
+            <!-- Banner/Links -->
+            <?php if (
+                ($this->countModules('position-9')) ||
+                ($this->countModules('position-10')) ||
+                ($this->countModules('position-11'))
+            ) : ?>
+
+                <div id="box_placeholder">
+                    <div id="box1">
+                        <jdoc:include type="modules" name="position-9" style="xhtml" />
                     </div>
-
-                <?php endif; ?>
-
-                <div id="push"></div>
-
-                <!-- Page End -->
-                <div id="copyright">
-                    <div class="copyrightint">
-                        Copyright &copy;<?= date('Y'); ?>
-                        <strong><?= $sitename; ?></strong> - Todos os direitos reservados
-                        <a href="http://www.sdrummond.com.br" title="Sdrummond Tecnologia" class="sd">
-                            <img src="images/sd.png" alt="Sdrummond Tecnologia" title="Sdrummond Tecnologia" />
-                        </a>
+                    <div id="box2">
+                        <jdoc:include type="modules" name="position-10" style="xhtml" />
                     </div>
+                    <div id="box3">
+                        <jdoc:include type="modules" name="position-11" style="xhtml" />
+                    </div>
+                </div>
+
+            <?php endif; ?>
+
+            <div id="push"></div>
+
+            <!-- Page End -->
+            <div id="copyright">
+                <div class="copyrightint">
+                    Copyright &copy;<?= date('Y'); ?>
+                    <strong><?= $sitename; ?></strong> - Todos os direitos reservados
+                    <a href="http://www.sdrummond.com.br" title="Sdrummond Tecnologia" class="sd">
+                        <img src="images/sd.png" alt="Sdrummond Tecnologia" title="Sdrummond Tecnologia" />
+                    </a>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </body>
 

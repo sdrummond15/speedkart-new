@@ -487,16 +487,15 @@ hr {
 #wrapper {
     display: block;
     padding: 0;
-    min-height: 100%;
-    height: auto !important;
-    height: 100%;
+    min-height: 10%;
 }
 
 #contact-form button.validate, #login-form input.button, #mailto-window button, #member-profile button.validate, #member-registration button.validate, #searchForm button, #user-registration button.validate, .btn, .login button, .logout button {
     width: auto;
     padding: 8px 20px 5px 20px;
     float: right;
-    background-color: #0e3042;
+    background-color: #000;
+    border-radius: 4px;
     color: #FFF;
     cursor: pointer;
     margin-bottom: 13px;
@@ -504,11 +503,11 @@ hr {
     font-family: 'Catamaran';
     font-size: 20px;
     line-height: 1;
-    border-radius: 0;
 }
 
 #contact-form button.validate:hover, #login-form input.button:hover, #mailto-window button:hover, #member-profile button.validate:hover, #member-registration button.validate:hover, #searchForm button:hover, #user-registration button.validate:hover, .btn:hover, .login button:hover, .logout button:hover {
-    background-color: #2b7aa2;
+    background-color: #FF2800;
+    transition: linear 150ms;
 }
 
 p.link-c {
@@ -521,25 +520,39 @@ p.link-c {
 
 #header_wrap {
     width: 100%;
-    display: table;
+    display: flex;;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 9999;
     transition: all .2s;
-    background-color: #FFF;
+    background-color: #000;
 }
 
 #header {
+    background: #000;
     width: 1170px;
-    margin: auto;
     display: table;
     position: relative;
+    justify-content: flex-start;
+}
+
+#a {
+    background: #ff2800;
+    flex: 0.5;
+    display: block;
 }
 
 #logo {
     float: left;
-    padding: 10px 0;
+    padding: 10px 45px 0 0;
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.7) 0%,
+        #ff2800 40%,
+        #ff2800 100%
+      );
+    clip-path: polygon(0 0, 100% 0, 85% 100%, -1% 101%);
 }
 
 #logo a {
@@ -667,43 +680,62 @@ p.link-c {
 }
 
 #topmenu_wrap {
-    position: absolute;
-    background-color: #0e3042;
+    /* background-color: #0e3042; */
     right: 0;
     bottom: -20px;
 }
 
 #topmenu ul {
+    margin-top: 2em !important;
     padding: 0;
     margin: 0;
     list-style: none;
     float: left;
+    margin-left: 0px;
 }
 
 #topmenu span, #topmenu a {
     font-size: 18px;
     font-weight: 300;
     display: block;
-    color: #fff;
+    color: #FFF;
     text-decoration: none;
     text-transform: uppercase;
     cursor: pointer;
     padding: 8px 30px;
+    background-color: #000;
 }
 
 #topmenu span:hover,
 #topmenu a:hover {
-    background-color: #2b7aa2;
+    color: #000;
+    background-color: #eee;
+    clip-path: polygon(4% 0, 100% 0, 95% 100%, 0% 100%);
 }
 
 #topmenu li.active a, #topmenu li.active a:hover {
     text-decoration: none;
     font-weight: 600;
-    background-color: #0e3042;
+    color: #000;
+    background-color: #fff;
+    clip-path: polygon(7% 0, 100% 0, 93% 100%, 0% 100%);
 }
 
 #topmenu li {
     float: left;
+}
+
+#topmenu li.active ul{
+    background-color: #fff;
+}
+
+#topmenu li ul li:hover{
+    background-color: #333;
+}
+
+#topmenu li.active ul a:hover {
+    background-color: #333;
+    color: #fff;
 }
 
 #topmenu li ul {
@@ -711,10 +743,10 @@ p.link-c {
     font-size: 12px;
     width: 240px;
     left: -999em;
-    background-color: #0e3042;
+    background-color: #eee;
     margin-left: -40px;
     z-index: 100;
-    margin-top: 0;
+    margin-top: 0 !important;
     max-height: 80vh;
     overflow-y: auto;
 }
@@ -741,10 +773,6 @@ p.link-c {
 #topmenu li ul a:hover {
     font-weight: 600;
 }
-
-#topmenu li.active ul a:hover {}
-
-#topmenu li.active ul a {}
 
 #topmenu li ul ul {
     margin: -39px 0 0 220px;
@@ -952,7 +980,7 @@ p.link-c {
 #content-w3 {
     width: 100%;
     float: left;
-    padding-top: 60px;
+    /* padding-top: 60px; */
     overflow: hidden;
     margin-bottom: 60px;
 }
@@ -1554,9 +1582,11 @@ fieldset div div input {
     margin: 60px auto;
 }
 
+/** Contacts **/
+
 h3.pane-toggler {
     font-size: 1.1em;
-    border-top: 1px solid #e2e2e2;
+    border-top: 1px solid rgb(226, 226, 226);
     margin-bottom: 2px;
     padding-bottom: 8px;
     padding-top: 8px;
@@ -1564,7 +1594,7 @@ h3.pane-toggler {
 
 h3.pane-toggler-down {
     font-size: 1.1em;
-    border-top: 1px solid #e2e2e2;
+    border-top: 1px solid rgb(226, 226, 226);
     margin-bottom: 2px;
     padding-bottom: 8px;
     padding-top: 8px;
@@ -1579,16 +1609,18 @@ address span {
     margin-bottom: 10px;
 }
 
-.panel .contact-form, .panel .contact-miscinfo {
-    padding: 10px;
+.panel .contact-form,
+.panel .contact-miscinfo {
+    padding: 10px
 }
 
-.contact .panel .contact-address, .contact .panel .contact-form form {
-    margin: 20px 0 0 0;
+.contact .panel .contact-form form,
+.contact .panel .contact-address {
+    margin: 20px 0 0 0
 }
 
 #contact-form fieldset {
-    border: 0;
+    border: 0px;
 }
 
 #contact-form fieldset dl dt {
@@ -1605,7 +1637,7 @@ address span {
 }
 
 .star {
-    color: #c00;
+    color: #cc0000;
 }
 
 .accordion-heading {
@@ -1617,7 +1649,7 @@ address span {
 
 .accordion-heading a {
     text-decoration: none;
-    color: #333;
+    color: #333333;
     cursor: default;
 }
 
@@ -1625,11 +1657,13 @@ div#basic-details div div img {
     padding-bottom: 10px;
 }
 
-div#basic-details div dl dt span img, div#display-misc div div dl dt span img {
+div#basic-details div dl dt span img,
+div#display-misc div div dl dt span img {
     display: none;
 }
 
 form#adminForm ul li {
+    /*background-color: #000;*/
     background-color: inherit;
     height: 20px;
     margin: 0;
@@ -2566,31 +2600,54 @@ a.readmore-link-c {
 }
 
 .titulo-contato h2 {
-    text-decoration: none;
-    font-family: 'Catamaran';
-    font-size: 20px;
-    text-align: center;
+    line-height: 1.2;
+    color: #010530;
+    font-size: 24px;
+    margin: 0 0 30px 0;
+    text-align: left;
+    border-bottom: 1px solid #383838;
 }
 
 .contact-form fieldset {
-    width: calc(50% - 20px);
+    width: 46%;
     float: left;
-    margin: 0 10px;
+    padding: 10px 2%;
 }
 
-.contact-form textarea, .contact-form input {
-    width: 100%;
-    padding: 5px 10px;
-    margin-bottom: 8px;
-    border: 0;
-    background-color: #eee;
-    font-family: 'Catamaran';
+.contact-form input::placeholder {}
+
+.contact-form input {
+    width: 96%;
+    padding: 8px 2%;
+    margin-bottom: 14px;
+    background-color: #f1f1f1 !important;
+    color: #000;
+    font-family: Arial;
     font-size: 18px;
+    border-radius: 5px;
+    border: 1px solid #14395F;
 }
 
 .contact-form textarea {
-    height: 184px;
-    margin-bottom: 0;
+    width: 96%;
+    padding: 8px 2%;
+    color: #000;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-family: Arial;
+    background-color: #EEE;
+    /* display: table; */
+    height: 128px;
+    border-radius: 5px;
+    border: 1px solid #14395F;
+}
+
+.contact-form .form-actions button {
+    float: right;
+    line-height: 1;
+    text-align: center;
+    font-family: Arial !important;
+    font-size: 18px;
 }
 
 /** Menu Responsive **/
@@ -2604,10 +2661,12 @@ a.readmore-link-c {
 }
 
 #gotomenu {
+    margin-right: 2em;
     padding: 7px 12px;
     background-color: transparent;
     border: 1px #FFF solid;
     cursor: pointer;
+    margin-top: 1.3em;
     display: table;
     line-height: 1;
 }
@@ -2620,8 +2679,12 @@ a.readmore-link-c {
 
 .menuresp {
     display: none;
+    position: fixed;
+    z-index: 9998;
+    left: 0;
     width: 100%;
     overflow-y: auto;
+    background-color: #FFF;
 }
 
 .menuresp ul {
@@ -2643,11 +2706,11 @@ a.readmore-link-c {
     width: 100%;
     text-align: center;
     transition: 300ms all;
-    background-color: #0e3042;
+    background-color: #FFFFFF;
 }
 
 .menuresp ul li a:hover {
-    background-color: #2b7aa2;
+    background-color: #ff2800;
 }
 
 .menuresp ul li img {
@@ -2658,7 +2721,7 @@ a.readmore-link-c {
     border: 0;
     background-color: transparent;
     padding: 0;
-    color: #FFF;
+    color: #000;
     cursor: pointer;
 }
 
@@ -2672,13 +2735,13 @@ a.readmore-link-c {
 }
 
 .menuresp li.active a, .menuresp li.active span {
-    color: #FFF;
+    color: #000;
     font-weight: 600;
 }
 
 .menuresp a, .menuresp span {
     text-align: center;
-    color: #FFF;
+    color: #000;
     font-family: 'Catamaran';
     font-weight: 500;
     font-size: 18px;
@@ -2878,10 +2941,6 @@ figcaption {
         font-size: 16px;
     }
 
-    #logo {
-        padding: 10px 0;
-    }
-
     .intro-image {
         width: auto !important;
     }
@@ -3061,6 +3120,10 @@ figcaption {
 @media screen and (max-width:480px) {
     table.produto-detalhe th, table.produto-detalhe td {
         font-size: 8px;
+    }
+
+    #gotomenu {
+        margin-right: 0;
     }
 
     .menutop {
