@@ -494,7 +494,7 @@ hr {
     width: auto;
     padding: 8px 20px 5px 20px;
     float: right;
-    background-color: #FF2800;
+    background-color: #000;
     border-radius: 4px;
     color: #FFF;
     cursor: pointer;
@@ -506,7 +506,7 @@ hr {
 }
 
 #contact-form button.validate:hover, #login-form input.button:hover, #mailto-window button:hover, #member-profile button.validate:hover, #member-registration button.validate:hover, #searchForm button:hover, #user-registration button.validate:hover, .btn:hover, .login button:hover, .logout button:hover {
-    background-color: #000;
+    background-color: #FF2800;
     transition: linear 150ms;
 }
 
