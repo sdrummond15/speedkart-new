@@ -2660,10 +2660,12 @@ a.readmore-link-c {
 }
 
 #gotomenu {
+    margin-right: 2em;
     padding: 7px 12px;
     background-color: transparent;
     border: 1px #FFF solid;
     cursor: pointer;
+    margin-top: 1.3em;
     display: table;
     line-height: 1;
 }
@@ -2938,10 +2940,6 @@ figcaption {
         font-size: 16px;
     }
 
-    #logo {
-        padding: 10px 0;
-    }
-
     .intro-image {
         width: auto !important;
     }
@@ -3121,6 +3119,10 @@ figcaption {
 @media screen and (max-width:480px) {
     table.produto-detalhe th, table.produto-detalhe td {
         font-size: 8px;
+    }
+
+    #gotomenu {
+        margin-right: 0;
     }
 
     .menutop {
