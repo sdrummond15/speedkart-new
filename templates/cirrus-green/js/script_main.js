@@ -45,20 +45,19 @@ jQuery(document).ready(function ($) {
 
   $(".menuresp").hide();
 
-  $("#gotomenu").click(function () {
-    $(".menuresp").slideToggle();
-  });
+$("#gotomenu").click(function () {
+    // 1. Pega o elemento do menu responsivo
+    var $menuResp = $(".menuresp");
 
-  if (home) {
-    var introImage = $(".item-page-home .intro-image").width();
-    var imgFulltext = $(".img-fulltext-right").outerWidth(true);
-    $(".item-page-home .intro-image").width(introImage - imgFulltext);
+    // 2. Calcula a altura total do cabeçalho
+    var headerHeight = $('#header_wrap').outerHeight();
 
-    $(".img-fulltext-right").css(
-      "margin-top",
-      $(".item-page-home .intro-image").height() * -1
-    );
-  }
+    // 3. Define a posição 'top' do menu para ser exatamente abaixo do header
+    $menuResp.css('top', headerHeight + 'px');
+
+    // 4. Agora sim, abre ou fecha o menu com a animação
+    $menuResp.slideToggle();
+});
 });
 
 jQuery(function ($) {

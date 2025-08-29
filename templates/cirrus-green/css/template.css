@@ -2676,8 +2676,12 @@ a.readmore-link-c {
 
 .menuresp {
     display: none;
+    position: fixed;
+    z-index: 9998;
+    left: 0;
     width: 100%;
     overflow-y: auto;
+    background-color: #FFF;
 }
 
 .menuresp ul {
@@ -2699,11 +2703,11 @@ a.readmore-link-c {
     width: 100%;
     text-align: center;
     transition: 300ms all;
-    background-color: #FF2800;
+    background-color: #FFFFFF;
 }
 
 .menuresp ul li a:hover {
-    background-color: #2b7aa2;
+    background-color: #ff2800;
 }
 
 .menuresp ul li img {
@@ -2714,7 +2718,7 @@ a.readmore-link-c {
     border: 0;
     background-color: transparent;
     padding: 0;
-    color: #FFF;
+    color: #000;
     cursor: pointer;
 }
 
@@ -2728,13 +2732,13 @@ a.readmore-link-c {
 }
 
 .menuresp li.active a, .menuresp li.active span {
-    color: #FFF;
+    color: #000;
     font-weight: 600;
 }
 
 .menuresp a, .menuresp span {
     text-align: center;
-    color: #FFF;
+    color: #000;
     font-family: 'Catamaran';
     font-weight: 500;
     font-size: 18px;
