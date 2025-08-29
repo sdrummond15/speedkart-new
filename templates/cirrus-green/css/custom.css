@@ -1,1 +1,20 @@
 @import url('css-personalizado/joomgallery.css');
+
+.form-actions {
+    background-color: #FFF !important;
+    padding: 0 !important;
+    margin-bottom: 0 !important;
+    border-top: none !important;
+}
+
+.accordion-inner {
+    padding: 0 !important;
+}
+
+.accordion-group {
+    border: none !important;
+}
+
+.btn-primary {
+    background-image: none !important;
+}

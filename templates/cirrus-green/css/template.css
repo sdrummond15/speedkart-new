@@ -494,7 +494,8 @@ hr {
     width: auto;
     padding: 8px 20px 5px 20px;
     float: right;
-    background-color: #0e3042;
+    background-color: #FF2800;
+    border-radius: 4px;
     color: #FFF;
     cursor: pointer;
     margin-bottom: 13px;
@@ -502,11 +503,11 @@ hr {
     font-family: 'Catamaran';
     font-size: 20px;
     line-height: 1;
-    border-radius: 0;
 }
 
 #contact-form button.validate:hover, #login-form input.button:hover, #mailto-window button:hover, #member-profile button.validate:hover, #member-registration button.validate:hover, #searchForm button:hover, #user-registration button.validate:hover, .btn:hover, .login button:hover, .logout button:hover {
-    background-color: #2b7aa2;
+    background-color: #000;
+    transition: linear 150ms;
 }
 
 p.link-c {
