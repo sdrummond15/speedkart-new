@@ -739,6 +739,7 @@ p.link-c {
 }
 
 #topmenu li ul {
+    overflow: hidden;
     position: absolute;
     font-size: 12px;
     width: 240px;
