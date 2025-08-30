@@ -3127,7 +3127,7 @@ figcaption {
     }
 
     #gotomenu {
-        margin-right: 0;
+        margin-right: 10px;
     }
 
     .copyrightint {
@@ -3159,6 +3159,12 @@ figcaption {
         width: 100%;
         max-width: none;
     }
+
+
+    #logo > a >img {
+        width:150px;
+        height: auto
+    }
 }
 
 @media screen and (max-width:430px) {
@@ -3170,5 +3176,11 @@ figcaption {
 @media screen and (max-width:400px) {
     .copyrightint {
         font-size: 0.425rem;
+    }
+}
+
+@media screen and (max-width:350px) {
+    #gotomenu {
+        margin-right: 0px;
     }
 }
