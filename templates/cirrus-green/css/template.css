@@ -1838,28 +1838,24 @@ a.feed-link {
 #copyright {
     clear: both;
     width: 100%;
-    display: table;
+    display: flex;
+    justify-content: center;
 }
 
 .copyrightint {
-    width: 1290px;
-    margin: auto;
-    padding: 0 0 20px 0;
-    text-align: center;
+    max-width: 1170px;
+    display: flex;
+    gap: 10px;
     color: #000;
-    position: relative;
-    font-size: 14px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    justify-content: center;
 }
 
-.copyrightint {
-    font-weight: 400;
-    font-family: 'Montserrat';
-    text-transform: uppercase;
-}
-
-.sd {
-    position: absolute;
-    right: 0;
+a.sd {
+    text-decoration: none;
+    float: right;
+    padding-bottom: 10px;
 }
 
 #box_wrap {
@@ -3106,6 +3102,9 @@ figcaption {
         width: 100%;
     }
 
+    .copyrightint {
+        font-size: 12px;
+    }
 }
 
 @media screen and (max-width:650px) {
@@ -3115,6 +3114,10 @@ figcaption {
 
     #stages {
         flex-wrap: wrap;
+    }
+
+    .copyrightint {
+        font-size: 0.6rem;
     }
 }
 
@@ -3127,6 +3130,10 @@ figcaption {
         margin-right: 0;
     }
 
+    .copyrightint {
+        font-size: 0.55rem;
+    }
+
     .menutop {
         width: 100%;
     }
@@ -3134,10 +3141,6 @@ figcaption {
     #search_wrap {
         width: auto;
         float: left;
-    }
-
-    .copyrightint {
-        font-size: 10px;
     }
 
     .sd img {
@@ -3155,5 +3158,17 @@ figcaption {
     .article-column {
         width: 100%;
         max-width: none;
+    }
+}
+
+@media screen and (max-width:430px) {
+    .copyrightint {
+        font-size: 0.5rem;
+    }
+}
+
+@media screen and (max-width:400px) {
+    .copyrightint {
+        font-size: 0.425rem;
     }
 }
