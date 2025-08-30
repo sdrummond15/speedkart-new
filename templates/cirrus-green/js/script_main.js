@@ -1,6 +1,5 @@
 jQuery(document).ready(function ($) {
 
-    $('#wrapper').css('height', $('#header_wrap').outerHeight(true) + 'px');
   /*MENU RESPONSIVO*/
   $(".menuresp li.parent > a, .menuresp li.parent > span").append(
     ' <button type="button"><i class="fas fa-chevron-down"></i></button>'
@@ -63,7 +62,7 @@ $("#gotomenu").click(function () {
 jQuery(function ($) {
   function updateWrapperHeight() {
     const h = $('#header_wrap').outerHeight(true) - 1;
-    $('#wrapper').css('height', h + 'px');
+    $('#wrapper').css('min-height', h + 'px');
   }
 
   // Load completo + RAF garante layout final
