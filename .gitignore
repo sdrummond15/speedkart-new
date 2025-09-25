@@ -1,9 +1,3 @@
-# =======================
-# JOOMLA .GITIGNORE
-# =======================
-
-# Configurações sensíveis
 configuration.php
 .htaccess
 htaccess.txt
-cache
